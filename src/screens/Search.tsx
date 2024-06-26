@@ -2,47 +2,48 @@ import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import KeywordSearch from '../components/search/KeywordSearch'
 import CategorySearch from '../components/search/CategorySearch'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const Search = (): JSX.Element => {
   const [selectedBar, setSelectedBar] = useState<string>('keyword')
 
   return (
-    <View style={styles.container}>
-      <View>
-        <View style={styles.topBarContainer}>
-          {['keyword', 'category'].map((item: string, index: number) => (
-            <TouchableOpacity
-              key={item}
-              activeOpacity={0.9}
-              style={{
-                ...styles.topBar,
-                backgroundColor: selectedBar === item ? '#8d77a6' : '#c3b3d8',
-              }}
-              onPress={() => {
-                setSelectedBar(item)
-              }}
+    <SafeAreaView style={styles.container}>
+      <View style={styles.topBarContainer}>
+        {['keyword', 'category'].map((item: string, _) => (
+          <TouchableOpacity
+            key={item}
+            activeOpacity={0.9}
+            style={{
+              ...styles.topBar,
+              backgroundColor: selectedBar === item ? '#8d77a6' : '#c3b3d8',
+            }}
+            onPress={() => {
+              setSelectedBar(item)
+            }}
+          >
+            <Text
+              style={[
+                styles.topBarLabel,
+                { color: selectedBar === item ? 'white' : '#eae9ec' },
+              ]}
             >
-              <Text
-                style={[
-                  styles.topBarLabel,
-                  { color: selectedBar === item ? 'white' : '#eae9ec' },
-                ]}
-              >
-                {item}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-
-        {selectedBar === 'keyword' ? <KeywordSearch /> : <CategorySearch />}
+              {item}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
-    </View>
+
+      {selectedBar === 'keyword' ? <KeywordSearch /> : <CategorySearch />}
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    flex: 1,
+    paddingTop: 16,
+    paddingHorizontal: 16,
   },
   topBarContainer: {
     display: 'flex',

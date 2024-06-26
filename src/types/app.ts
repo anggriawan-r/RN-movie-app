@@ -48,3 +48,8 @@ export interface MovieItemProps {
   coverType: 'poster' | 'backdrop'
   containerStyles?: StyleProp<ViewStyle>
 }
+
+export type CategoryProps = {
+  id: number
+  name: string
+}

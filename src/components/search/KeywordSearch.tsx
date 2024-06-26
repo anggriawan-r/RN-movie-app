@@ -56,10 +56,10 @@ const KeywordSearch = () => {
 
       <FlatList
         data={movies}
-        fadingEdgeLength={32}
         showsVerticalScrollIndicator={false}
         numColumns={3}
         contentContainerStyle={{
+          paddingBottom: 16,
           gap: 8,
         }}
         columnWrapperStyle={{ gap: 4 }}

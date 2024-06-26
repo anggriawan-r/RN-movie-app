@@ -26,14 +26,14 @@ function BottomTabNavigation(): JSX.Element {
         component={Search}
         options={{
           tabBarIcon: ({ color }) => (
-            <Feather name="heart" size={28} color={color} />
+            <Feather name="search" size={28} color={color} />
           ),
           headerShown: false,
         }}
       />
 
       <Tab.Screen
-        name="Favotire"
+        name="Favorite"
         component={Favorite}
         options={{
           tabBarIcon: ({ color }) => (

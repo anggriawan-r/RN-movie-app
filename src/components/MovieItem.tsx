@@ -4,9 +4,14 @@ import { FontAwesome } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
 import type { MovieItemProps } from '../types/app'
 
-const MovieItem = ({ movie, size, coverType }: MovieItemProps): JSX.Element => {
+const MovieItem = ({
+  movie,
+  size,
+  coverType,
+  containerStyles,
+}: MovieItemProps): JSX.Element => {
   return (
-    <View>
+    <View style={containerStyles}>
       <ImageBackground
         resizeMode="cover"
         style={[size, styles.backgroundImage]}

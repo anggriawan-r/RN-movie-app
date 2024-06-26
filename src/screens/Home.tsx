@@ -1,10 +1,17 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import HomeStackNavigation from '../navigations/HomeStackNavigation'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import MovieDetail from '../navigations/MovieDetail'
 
-export default function Home(): JSX.Element {
+const Tab = createNativeStackNavigator()
+
+function Home(): JSX.Element {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="HomeStack" component={HomeStackNavigation} />
+      <Tab.Screen name="MovieDetail" component={MovieDetail} />
+    </Tab.Navigator>
   )
 }
+
+export default Home

@@ -10,9 +10,9 @@ const Tab = createBottomTabNavigator()
 function BottomTabNavigation(): JSX.Element {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        activeTintColor: '#9986b8',
-        inactiveTintColor: '#767C81',
+      screenOptions={{
+        tabBarActiveTintColor: '#9986b8',
+        tabBarInactiveTintColor: '#767C81',
       }}
     >
       <Tab.Screen
@@ -20,7 +20,11 @@ function BottomTabNavigation(): JSX.Element {
         component={Home}
         options={{
           tabBarIcon: ({ color, focused }) => (
-            <Feather name="home" size={28} color={focused ? '#9986b8' : '#767C81'} />
+            <Feather
+              name="home"
+              size={28}
+              color={focused ? '#9986b8' : '#767C81'}
+            />
           ),
           headerShown: false,
         }}
@@ -31,7 +35,11 @@ function BottomTabNavigation(): JSX.Element {
         component={Search}
         options={{
           tabBarIcon: ({ color, focused }) => (
-            <Feather name="search" size={28} color={focused ? '#9986b8' : '#767C81'} />
+            <Feather
+              name="search"
+              size={28}
+              color={focused ? '#9986b8' : '#767C81'}
+            />
           ),
           headerShown: false,
         }}
@@ -42,7 +50,11 @@ function BottomTabNavigation(): JSX.Element {
         component={Favorite}
         options={{
           tabBarIcon: ({ color, focused }) => (
-            <Feather name="heart" size={28} color={focused ? '#9986b8' : '#767C81'} />
+            <Feather
+              name="heart"
+              size={28}
+              color={focused ? '#9986b8' : '#767C81'}
+            />
           ),
           headerShown: false,
         }}

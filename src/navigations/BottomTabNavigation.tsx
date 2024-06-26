@@ -9,13 +9,18 @@ const Tab = createBottomTabNavigator()
 
 function BottomTabNavigation(): JSX.Element {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: '#9986b8',
+        inactiveTintColor: '#767C81',
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Feather name="home" size={28} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Feather name="home" size={28} color={focused ? '#9986b8' : '#767C81'} />
           ),
           headerShown: false,
         }}
@@ -25,8 +30,8 @@ function BottomTabNavigation(): JSX.Element {
         name="Search"
         component={Search}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Feather name="search" size={28} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Feather name="search" size={28} color={focused ? '#9986b8' : '#767C81'} />
           ),
           headerShown: false,
         }}
@@ -36,8 +41,8 @@ function BottomTabNavigation(): JSX.Element {
         name="Favorite"
         component={Favorite}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Feather name="heart" size={28} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Feather name="heart" size={28} color={focused ? '#9986b8' : '#767C81'} />
           ),
           headerShown: false,
         }}

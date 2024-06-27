@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
   },
   topBarLabel: {
     color: 'black',
+    lineHeight: 20,
     fontSize: 20,
     fontWeight: '400',
     textTransform: 'capitalize',

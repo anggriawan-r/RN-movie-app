@@ -12,7 +12,7 @@ const MovieDetail = ({ route }: any): JSX.Element => {
         marginTop: 32,
       }}
     >
-      <Text style={{ fontSize: 30 }}>Movie ID: {id}</Text>
+      <Text style={{ fontSize: 30 }}>Movie id: {id}</Text>
     </View>
   )
 }

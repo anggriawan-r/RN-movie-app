@@ -45,3 +45,8 @@ export interface MovieListProps {
     size: { width: number; height: number }
     coverType: 'poster' | 'backdrop'
   }
+
+  export type RootStackParamList = {
+    Home: undefined;
+    MovieDetail: { id: number };
+  };

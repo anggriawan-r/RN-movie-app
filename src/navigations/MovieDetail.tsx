@@ -1,42 +1,22 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
-import { API_URL, API_ACCESS_TOKEN } from '@env'
+import { Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-const MovieDetail = ({ navigation }: any): JSX.Element => {
-  const fetchData = (): void => {
-    if (!API_URL || !API_ACCESS_TOKEN) {
-      throw new Error('Environment variables not found')
-    }
-
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: `Bearer ${API_ACCESS_TOKEN}`,
-      },
-    }
-
-    fetch(API_URL, options)
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response)
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-  }
+const MovieDetail = ({ route }: any): JSX.Element => {
+  const { id } = route.params
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Movie Detail Page</Text>
-      <Button
-        title="Fetch Data"
-        onPress={() => {
-          fetchData()
-        }}
-      />
+    <View
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginTop: 32,
+      }}
+    >
+      <Text style={{ fontSize: 30 }}>Movie ID: {id}</Text>
     </View>
   )
 }
 
-export default MovieDetail
+export default MovieDetail;

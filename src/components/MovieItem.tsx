@@ -1,12 +1,18 @@
 import React from 'react'
-import { ImageBackground, Text, StyleSheet, View } from 'react-native'
+import { ImageBackground, Text, StyleSheet, View, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
 import type { MovieItemProps } from '../types/app'
+import { useNavigation, StackActions } from '@react-navigation/native'
 
 const MovieItem = ({ movie, size, coverType }: MovieItemProps): JSX.Element => {
+  const navigation = useNavigation()
+  const pushAction = StackActions.push('MovieDetail', { id: movie.id })
+
   return (
-    <View>
+    <TouchableOpacity onPress={() => {
+      navigation.dispatch(pushAction)
+    }}>
       <ImageBackground
         resizeMode="cover"
         style={[size, styles.backgroundImage]}
@@ -29,7 +35,7 @@ const MovieItem = ({ movie, size, coverType }: MovieItemProps): JSX.Element => {
           </View>
         </LinearGradient>
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   )
 }
 
@@ -42,21 +48,19 @@ const styles = StyleSheet.create({
   },
   movieTitle: {
     color: 'white',
-    marginBottom: 4,
-    lineHeight: 20,
   },
   gradientStyle: {
     padding: 8,
     height: '100%',
     width: '100%',
-    borderRadius: 12,
+    borderRadius: 8,
     display: 'flex',
     justifyContent: 'flex-end',
   },
   ratingContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 3,
+    gap: 2,
   },
   rating: {
     color: 'yellow',

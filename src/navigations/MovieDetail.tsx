@@ -1,7 +1,5 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const MovieDetail = ({ route }: any): JSX.Element => {
   const { id } = route.params
@@ -19,4 +17,4 @@ const MovieDetail = ({ route }: any): JSX.Element => {
   )
 }
 
-export default MovieDetail;
+export default MovieDetail

@@ -1,22 +1,20 @@
-// src/navigations/HomeStackNavigation.tsx
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Home from '../screens/Home';
-import MovieDetail from './MovieDetail'; // Ensure the path is correct
-import { RootStackParamList } from '../types/app';
+import { ParamListBase } from '@react-navigation/native'
+import React from 'react'
+import { Button, Text, View } from 'react-native'
+import { NativeStackScreenProps } from 'react-native-screens/lib/typescript/native-stack/types'
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
-
-const HomeStackNavigator = () => {
+function HomeStackNavigation({
+  navigation,
+}: NativeStackScreenProps<ParamListBase, 'HomeStack'>): JSX.Element {
   return (
-    <NavigationContainer>
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="MovieDetail" component={MovieDetail} />
-    </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+    <View>
+      <Text>Home Stack Navigation</Text>
+      <Button
+        title="Pergi ke Moview Detail"
+        onPress={() => navigation.navigate('MovieDetail')}
+      />
+    </View>
+  )
+}
 
-export default HomeStackNavigator;
+export default HomeStackNavigation

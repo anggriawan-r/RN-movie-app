@@ -1,45 +1,48 @@
+import { DimensionValue, StyleProp, ViewStyle } from 'react-native'
+
 export interface MovieListProps {
-    title: string
-    path: string
-    coverType: 'poster' | 'backdrop'
-  }
+  title: string
+  path: string
+  coverType: 'poster' | 'backdrop'
+}
 
-  export interface Movie {
-    backdrop_path: string
-    genres: { id: number; name: string }
-    homepage: string
+export interface Movie {
+  backdrop_path: string
+  genres: { id: number; name: string }
+  homepage: string
+  id: number
+  original_title: string
+  overview: string
+  popularity: number
+  poster_path: number
+  original_language: string
+  production_companies: {
     id: number
-    original_title: string
-    overview: string
-    popularity: number
-    poster_path: number
-    original_language: string
-    production_companies: {
-      id: number
-      logo_path: string
-      name: string
-      origin_country: string
-    }
-    production_countries: {
-      iso_3166_1: string
-      name: string
-    }
-    release_date: Date
-    revenue: number
-    runtime: number
-    spoken_languages: {
-      english_name: string
-      iso_639_1: string
-      name: string
-    }
-    status: string
-    tagline: string
-    title: string
-    video: boolean
-    vote_average: number
-    vote_count: number
+    logo_path: string
+    name: string
+    origin_country: string
   }
+  production_countries: {
+    iso_3166_1: string
+    name: string
+  }
+  release_date: Date
+  revenue: number
+  runtime: number
+  spoken_languages: {
+    english_name: string
+    iso_639_1: string
+    name: string
+  }
+  status: string
+  tagline: string
+  title: string
+  video: boolean
+  vote_average: number
+  vote_count: number
+}
 
+<<<<<<< HEAD
   export interface MovieItemProps {
     movie: Movie
     size: { width: number; height: number }
@@ -50,3 +53,21 @@ export interface MovieListProps {
     Home: undefined;
     MovieDetail: { id: number };
   };
+=======
+export interface MovieItemProps {
+  movie: Movie
+  size?: { width?: DimensionValue; height?: DimensionValue }
+  coverType: 'poster' | 'backdrop'
+  containerStyles?: StyleProp<ViewStyle>
+}
+
+export type CategoryProps = {
+  id: number
+  name: string
+}
+
+export type RootStackParamList = {
+  Home: undefined
+  MovieDetail: { id: number }
+}
+>>>>>>> d906d29362bda9f3c2338377881b97bd0fa9fb85

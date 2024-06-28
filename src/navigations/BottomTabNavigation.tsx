@@ -4,6 +4,8 @@ import { Feather } from '@expo/vector-icons'
 import Home from '../screens/Home'
 import Search from '../screens/Search'
 import Favorite from '../screens/Favorite'
+import CategoryStackNavigation from './CategoryStackNavigation'
+import HomeStackNavigator from './HomeStackNavigation'
 
 const Tab = createBottomTabNavigator()
 
@@ -16,9 +18,10 @@ function BottomTabNavigation(): JSX.Element {
       }}
     >
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="HomeStack"
+        component={HomeStackNavigator}
         options={{
+          title: 'Home',
           tabBarIcon: ({ color, focused }) => (
             <Feather
               name="home"
@@ -31,8 +34,8 @@ function BottomTabNavigation(): JSX.Element {
       />
 
       <Tab.Screen
-        name="Search"
-        component={Search}
+        name="SearchStack"
+        component={CategoryStackNavigation}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <Feather
@@ -42,6 +45,7 @@ function BottomTabNavigation(): JSX.Element {
             />
           ),
           headerShown: false,
+          title: 'Search',
         }}
       />
 

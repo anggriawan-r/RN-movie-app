@@ -35,6 +35,7 @@ function BottomTabNavigation(): JSX.Element {
         name="SearchStack"
         component={CategoryStackNavigation}
         options={{
+          title: 'Search',
           tabBarIcon: ({ color, focused }) => (
             <Feather
               name="search"
@@ -43,7 +44,6 @@ function BottomTabNavigation(): JSX.Element {
             />
           ),
           headerShown: false,
-          title: 'Search',
         }}
       />
 

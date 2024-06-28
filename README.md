@@ -5,10 +5,14 @@ RN Movie App adalah aplikasi mobile untuk melihat berbagai film di dunia, baik f
 ## Our Contributor
 
 - Rio Maulana Fathurrahman
+  - Movie Detail
 - Anggriawan Rayzadmiko
+  - Search Screen
 - Samuel
+  - Favorite Screen
 - Meilinda Stephani Raharja
-- Lucky Salam
+  - Home Screen
+- Lucky Salam (MIA)
 
 ## Installation
 

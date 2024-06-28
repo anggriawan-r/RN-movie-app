@@ -69,12 +69,14 @@ const CategorySearch = () => {
         )}
       />
 
-      <TouchableOpacity
-        style={styles.searchButton}
-        onPress={() => navigation.dispatch(pushAction)}
-      >
-        <Text style={{ color: 'white', fontWeight: 'bold' }}>Search</Text>
-      </TouchableOpacity>
+      {selectedCat.id !== 0 && (
+        <TouchableOpacity
+          style={styles.searchButton}
+          onPress={() => navigation.dispatch(pushAction)}
+        >
+          <Text style={{ color: 'white', fontWeight: 'bold' }}>Search</Text>
+        </TouchableOpacity>
+      )}
     </View>
   )
 }

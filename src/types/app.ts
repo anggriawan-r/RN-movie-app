@@ -53,3 +53,31 @@ export type CategoryProps = {
   id: number
   name: string
 }
+
+export type RootStackParamList = {
+  Home: undefined
+  MovieDetail: { id: number }
+}
+
+export const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const
+
+export const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+] as const
+
+export type MovieInfo = {
+  label: string
+  value: string | number | Date
+  isDate?: boolean
+}

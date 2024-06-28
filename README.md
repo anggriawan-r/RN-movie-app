@@ -12,7 +12,7 @@ RN Movie App adalah aplikasi mobile untuk melihat berbagai film di dunia, baik f
   - Favorite Screen
 - Meilinda Stephani Raharja
   - Home Screen
-- Lucky Salam (MIA)
+- Lucky Salam (Tidak aktif)
 
 ## Installation
 

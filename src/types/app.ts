@@ -42,18 +42,6 @@ export interface Movie {
   vote_count: number
 }
 
-<<<<<<< HEAD
-  export interface MovieItemProps {
-    movie: Movie
-    size: { width: number; height: number }
-    coverType: 'poster' | 'backdrop'
-  }
-
-  export type RootStackParamList = {
-    Home: undefined;
-    MovieDetail: { id: number };
-  };
-=======
 export interface MovieItemProps {
   movie: Movie
   size?: { width?: DimensionValue; height?: DimensionValue }
@@ -70,4 +58,3 @@ export type RootStackParamList = {
   Home: undefined
   MovieDetail: { id: number }
 }
->>>>>>> d906d29362bda9f3c2338377881b97bd0fa9fb85

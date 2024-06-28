@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import { fetchOptions } from '../../lib/fetchOptions'
 import { Movie } from '../../types/app'
 import MovieItem from '../MovieItem'
+import { API_URL } from '@env'
 
 const KeywordSearch = () => {
   const [text, onChangeText] = useState('')
@@ -21,7 +22,7 @@ const KeywordSearch = () => {
   ): Promise<void> => {
     try {
       const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?query=${text}&include_adult=false&language=en-US`,
+        `${API_URL}/search/movie?query=${text}&include_adult=false&language=en-US`,
         fetchOptions,
       )
 

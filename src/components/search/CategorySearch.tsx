@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react'
 import { fetchOptions } from '../../lib/fetchOptions'
 import { CategoryProps } from '../../types/app'
 import { useNavigation, StackActions } from '@react-navigation/native'
+import { API_URL } from '@env'
 
 const CategorySearch = () => {
   const navigation = useNavigation()
@@ -26,10 +27,7 @@ const CategorySearch = () => {
 
   useEffect(() => {
     const getCategories = async (): Promise<void> => {
-      const response = await fetch(
-        'https://api.themoviedb.org/3/genre/movie/list',
-        fetchOptions,
-      )
+      const response = await fetch(`${API_URL}/genre/movie/list`, fetchOptions)
 
       const data = await response.json()
       setCategories(data.genres)

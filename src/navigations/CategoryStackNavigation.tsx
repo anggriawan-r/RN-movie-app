@@ -1,7 +1,7 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Search from '../screens/Search'
-import CategorySearchResult from './CategorySearchResult'
+import CategorySearchResult from '../screens/CategorySearchResult'
 
 const Stack = createNativeStackNavigator()
 

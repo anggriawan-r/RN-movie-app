@@ -1,4 +1,4 @@
-# RN MOVIE APP
+# RN MOVIE APP - KELOMPOK H
 
 RN Movie App adalah aplikasi mobile untuk melihat berbagai film di dunia, baik film yang sudah ada maupun yang akan datang dan akan terus up-to-date.
 

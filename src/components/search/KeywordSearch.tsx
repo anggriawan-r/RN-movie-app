@@ -6,32 +6,52 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { fetchOptions } from '../../lib/fetchOptions'
 import { Movie } from '../../types/app'
 import MovieItem from '../MovieItem'
 import { API_URL } from '@env'
+import PaginationButton from './PaginationButton'
 
 const KeywordSearch = () => {
   const [text, onChangeText] = useState('')
   const [movies, setMovies] = useState<Movie[]>([])
+  const [page, setPage] = useState<number>(1)
+  const [totalPage, setTotalPage] = useState(0)
 
   const onSubmit = async (
     text: TextInputSubmitEditingEventData['text'],
+    page: number = 1,
   ): Promise<void> => {
     try {
       const response = await fetch(
-        `${API_URL}/search/movie?query=${text}&include_adult=false&language=en-US`,
+        `${API_URL}/search/movie?query=${text}&include_adult=false&language=en-US&page=${page}`,
         fetchOptions,
       )
 
       const data = await response.json()
       setMovies(data.results)
+      setTotalPage(data.total_pages)
     } catch (error) {
       console.log(error)
     }
   }
+
+  const getNextPage = async () => {
+    if (page === totalPage) return
+    setPage(page + 1)
+  }
+
+  const getPreviousPage = async () => {
+    if (page === 1) return
+
+    setPage(page - 1)
+  }
+
+  useEffect(() => {
+    onSubmit(text, page)
+  }, [page])
 
   return (
     <>
@@ -75,6 +95,16 @@ const KeywordSearch = () => {
             key={item.id}
           />
         )}
+        {...(movies.length > 0 && {
+          ListFooterComponent: () => (
+            <PaginationButton
+              getPreviousPage={getPreviousPage}
+              getNextPage={getNextPage}
+              page={page}
+              totalPage={totalPage}
+            />
+          ),
+        })}
       />
     </>
   )

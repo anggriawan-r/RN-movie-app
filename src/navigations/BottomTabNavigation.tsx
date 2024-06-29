@@ -4,6 +4,7 @@ import { Feather } from '@expo/vector-icons'
 import Favorite from '../screens/Favorite'
 import CategoryStackNavigation from './CategoryStackNavigation'
 import HomeStackNavigator from './HomeStackNavigation'
+import FavoriteStackNavigation from './FavoriteStackNavigation'
 
 const Tab = createBottomTabNavigator()
 
@@ -48,15 +49,12 @@ function BottomTabNavigation(): JSX.Element {
       />
 
       <Tab.Screen
-        name="Favorite"
-        component={Favorite}
+        name="FavoriteNavigation"
+        component={FavoriteStackNavigation}
         options={{
-          tabBarIcon: ({ color, focused }) => (
-            <Feather
-              name="heart"
-              size={28}
-              color={focused ? '#9986b8' : '#767C81'}
-            />
+          title: 'Favorite',
+          tabBarIcon: ({ color }) => (
+            <Feather name="heart" size={28} color={color} />
           ),
           headerShown: false,
         }}

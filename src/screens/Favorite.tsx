@@ -1,4 +1,4 @@
-import { View, StatusBar, FlatList } from 'react-native'
+import { View, StatusBar, FlatList, Text } from 'react-native'
 import React, { useCallback, useState } from 'react'
 import { Movie } from '../types/app'
 import { getFavorite } from '../lib/getFavorite'
@@ -16,7 +16,7 @@ const Favorite = () => {
 
   return (
     <>
-      {favoriteList && (
+      {favoriteList.length > 0 ? (
         <View
           style={{
             flex: 1,
@@ -45,6 +45,12 @@ const Favorite = () => {
               />
             )}
           />
+        </View>
+      ) : (
+        <View
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+        >
+          <Text>Your favorite list is empty.</Text>
         </View>
       )}
     </>

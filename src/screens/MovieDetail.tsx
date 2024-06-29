@@ -13,9 +13,9 @@ import { days, months, Movie, MovieInfo } from '../types/app'
 import { LinearGradient } from 'expo-linear-gradient'
 import { FontAwesome } from '@expo/vector-icons'
 import MovieList from '../components/MovieList'
-// import { removeFavorite } from '../lib/removeFavorite'
-// import { addFavorite } from '../lib/addFavorite'
-// import { checkIsFavorite } from '../lib/checkIsFavorite'
+import { removeFavorite } from '../lib/removeFavorite'
+import { checkIsFavorite } from '../lib/checkIsFavorite'
+import { addFavorite } from '../lib/addFavorite'
 
 const MovieInfoItem = ({
   label,
@@ -63,7 +63,7 @@ const MovieDetail = ({ route }: any) => {
   useEffect(() => {
     getMovie()
     if (movie) {
-      // checkIsFavorite(movie?.id, setIsFavorite)
+      checkIsFavorite(movie?.id, setIsFavorite)
     }
   }, [movie])
 
@@ -106,9 +106,9 @@ const MovieDetail = ({ route }: any) => {
                   </View>
                   <TouchableOpacity
                     onPress={() => {
-                      // isFavorite
-                      //   ? removeFavorite(movie.id, setIsFavorite)
-                      //   : addFavorite(movie, setIsFavorite)
+                      isFavorite
+                        ? removeFavorite(movie.id, setIsFavorite)
+                        : addFavorite(setIsFavorite, movie)
                     }}
                   >
                     <FontAwesome

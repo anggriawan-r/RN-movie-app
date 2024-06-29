@@ -1,9 +1,9 @@
 import {
-  View,
   Text,
   TouchableOpacity,
   StyleSheet,
   FlatList,
+  Dimensions,
 } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { fetchOptions } from '../../lib/fetchOptions'
@@ -37,7 +37,7 @@ const CategorySearch = () => {
   }, [])
 
   return (
-    <View style={{ marginTop: 16 }}>
+    <>
       <FlatList
         data={categories}
         keyExtractor={(item) => item.id.toString()}
@@ -46,7 +46,8 @@ const CategorySearch = () => {
         contentContainerStyle={{
           gap: 8,
         }}
-        columnWrapperStyle={{ gap: 4 }}
+        columnWrapperStyle={{ gap: 8 }}
+        style={{ marginTop: 16 }}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => setSelectedCat({ ...item })}
@@ -56,6 +57,7 @@ const CategorySearch = () => {
               ...styles.button,
               backgroundColor:
                 selectedCat.id === item.id ? '#8d77a6' : '#ded7ec',
+              width: Dimensions.get('window').width / 2 - 20,
             }}
           >
             <Text
@@ -75,13 +77,12 @@ const CategorySearch = () => {
           <Text style={{ color: 'white', fontWeight: 'bold' }}>Search</Text>
         </TouchableOpacity>
       )}
-    </View>
+    </>
   )
 }
 
 const styles = StyleSheet.create({
   button: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     height: 48,
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
   },
   searchButton: {
     marginTop: 16,
+    marginBottom: 16,
     backgroundColor: '#8d77a6',
     alignItems: 'center',
     justifyContent: 'center',

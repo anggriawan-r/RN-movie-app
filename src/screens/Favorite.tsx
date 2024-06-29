@@ -1,8 +1,8 @@
-import { View, ScrollView, StatusBar, Dimensions, FlatList } from 'react-native'
+import { View, StatusBar, FlatList } from 'react-native'
 import React, { useCallback, useState } from 'react'
 import { Movie } from '../types/app'
 import { getFavorite } from '../lib/getFavorite'
-import MovieItem from '../components/movies/MovieItem'
+import MovieItem from '../components/MovieItem'
 import { useFocusEffect } from '@react-navigation/native'
 
 const Favorite = () => {
@@ -46,34 +46,6 @@ const Favorite = () => {
             )}
           />
         </View>
-
-        // <ScrollView style={{ width: '100%' }}>
-        //   <View
-        //     style={{
-        //       display: 'flex',
-        //       flex: 1,
-        //       flexDirection: 'row',
-        //       flexWrap: 'wrap',
-        //       minWidth: '100%',
-        //       marginTop: StatusBar.currentHeight! + 8,
-        //       marginHorizontal: 8,
-        //       gap: 8,
-        //       rowGap: 8,
-        //     }}
-        //   >
-        //     {/* {favoriteList.map((item) => (
-        //       <MovieItem
-        //         movie={item}
-        //         size={{
-        //           width: Dimensions.get('window').width / 3 - 8,
-        //           height: 160,
-        //         }}
-        //         coverType="poster"
-        //         key={item.id}
-        //       />
-        //     ))} */}
-        //   </View>
-        // </ScrollView>
       )}
     </>
   )

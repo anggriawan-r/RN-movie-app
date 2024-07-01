@@ -8,7 +8,7 @@ RN Movie App adalah aplikasi mobile untuk melihat berbagai film di dunia, baik f
   - Movie Detail
 - Anggriawan Rayzadmiko
   - Search Screen
-- Samuel
+- Samuel Godlife Lb
   - Favorite Screen
 - Meilinda Stephani Raharja
   - Home Screen
